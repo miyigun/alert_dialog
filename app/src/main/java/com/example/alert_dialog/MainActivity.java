@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button button;
+    Button buton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,16 +23,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void define() {
-        button = (Button) findViewById(R.id.openDialog);
-        button.setOnClickListener(new View.OnClickListener() {
+        buton = (Button) findViewById(R.id.openDialog);
+        buton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openDialog();
+                dialogOpen();
             }
         });
     }
 
-    public void openDialog() {
+    public void dialogOpen() {
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(R.layout.alertlayout, null);
 
@@ -40,24 +40,24 @@ public class MainActivity extends AppCompatActivity {
         EditText userNameEditText = (EditText) view.findViewById(R.id.user);
         EditText passwordEditText = (EditText) view.findViewById(R.id.password);
 
-        Button button = (Button) view.findViewById(R.id.button);
-        Button button2 = (Button) view.findViewById(R.id.button2);
+        Button buton = (Button) view.findViewById(R.id.buton);
+        Button buton2 = (Button) view.findViewById(R.id.buton2);
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setView(view);
         alert.setCancelable(false);
         AlertDialog dialog = alert.create();
 
-        button.setOnClickListener(new View.OnClickListener() {
+        buton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), mailEditText.getText().toString()
+                Toast.makeText(getBaseContext(), mailEditText.getText().toString()
                                 + " " + userNameEditText.getText().toString() + " " + passwordEditText.getText().toString()
                         , Toast.LENGTH_LONG).show();
                 dialog.cancel();
             }
         });
-        button2.setOnClickListener(new View.OnClickListener() {
+        buton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.cancel();
